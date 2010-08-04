@@ -1,10 +1,4 @@
 #!/bin/sh
-
-# GEDIT EXTERNAL TOOLS
-# make something like phpdoc but just for the headers
-# @dependencies just add the external tools
-# @install external tools manager, then click new,put this in the editbox and output Insert at cursor position ( for easy useage )
-
 fullname=$(getent passwd $USER | awk -F: '{ gsub(",","",$5); print $5 }')
 fullemail='adamramadhan@live.com'
 
@@ -18,5 +12,4 @@ printf "
  * @version		$(date '+%F at %H:%M:%S')
  * 
  */"
-
 
