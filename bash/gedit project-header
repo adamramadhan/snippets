@@ -1,0 +1,15 @@
+#!/bin/sh
+fullname=$(getent passwd $USER | awk -F: '{ gsub(",","",$5); print $5 }')
+fullemail='adamramadhan@live.com'
+
+printf "
+/** 
+ * RED - $GEDIT_CURRENT_DOCUMENT_NAME
+ * 
+ * @copyright	Copyright (c) 2009-2010 DAMSnetworks INDONESIA. ( http://www.damsnetworks.com )
+ * @license		http://en.wikipedia.org/wiki/Proprietary_software	Proprietary license
+ * @author		$fullname at $fullemail
+ * @version		$(date '+%F at %H:%M:%S')
+ * 
+ */"
+
