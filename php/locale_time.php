@@ -9,3 +9,4 @@ setlocale(LC_ALL, 'id_ID.UTF8', 'id_ID.UTF-8', 'id_ID.8859-1', 'id_ID', 'IND.UTF
 echo strftime("%A, %d %B %Y") . "\n";
 
 echo '</pre>' . "\n";
+?>
