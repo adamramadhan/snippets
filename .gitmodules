@@ -1,0 +1,3 @@
+[submodule "krTheme.tmTheme"]
+	path = krTheme.tmTheme
+	url = git://github.com/kennethreitz/krTheme.tmTheme.git

@@ -1,0 +1,1 @@
+gem x --include-dependencies = instal gem mengunakan gem lain yg dibutuhkan untuk jalan.
