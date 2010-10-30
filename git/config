@@ -1,0 +1,143 @@
+[user]
+    name = <Your Name>
+    email = <your email address>
+
+[core]
+    # Ignore backup and temporary files produced by Emacs in all repositories.
+    # The file below contains a list of patterns to match Emacs backup and
+    # temporary files (note that you need to provide full path to the file
+    # because git would not expand ~). Uncomment the following option if you
+    # want to use a global .gitignore file.
+    #excludesfile = /home/<your username>/.gitignore
+
+[format]
+    # Add the patch number and the total number of patches in the series to
+    # the subject of the patch email if more than one patch is being produced.
+    numbered = auto
+
+[gc]
+    # Do not remove references under .git/refs/heads and .git/refs/tags when
+    # git gc is run. The default behavior of git-gc is to pack the references
+    # and store the packed references in .git/packed-refs. I personally find
+    # the references kept in files under .git/refs very useful, they make the
+    # retrieval of branch or tag info very easy from a shell script so I do
+    # not want to have them packed when I run git-gc.
+    packrefs = 0
+
+[sendemail]
+    # Do not add the e-mail address from Signed-off-by and CC headers to the
+    # list of recipients. The default setting would send me a copy of every
+    # patch I sign off--which I do not want.
+    suppressfrom = true
+
+    # Set the envelope sender address explicitly. I configured my local
+    # postfix server to select the outbound SMTP server based on the sender
+    # address in the envelope so it is important that we have a correct email
+    # address there.
+    envelopesender = <your email address>
+
+[alias]
+    ci = commit
+    co = checkout
+    f  = fetch
+    s = status
+    b = branch
+    d = diff
+    a = add
+    l = log
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[http]
+    # The CA certificate used to verify servers in sip-router.org domain, this
+    # is useful if you pull from, for example, https://git.sip-router.org.
+    # Uncomment the following configuration option if you have the CA certificate
+    # installed.
+    #sslCAInfo = /etc/ssl/certs/sip-router.org_CA.pem
+
+[merge]
+    # Include the summary of merged commits into all newly created merge
+    # commits. The newly created merge commit will contain a one-line summary
+    # of every (well, most) merged commits.
+    log = true
+
+    # Show merge statistics after merge.
+    stat = true
+
+[branch]
+    # When creating a new branch off a remote branch, always set it up to
+    # track the remote branch so that we can pull from there.
+    autoseupmerge = always
+
+[branch "master"]
+    # This is the list of cmdline options that should be added to git-merge                                     
+    # when I merge commits into the master branch.                                                              
+    #                                                                                                           
+    # First off, the option --no-commit instructs git not to commit the merge                                   
+    # by default. This allows me to do some final adjustment to the commit log                                  
+    # message before it gets commited. I often use this to add extra info to                                    
+    # the merge message or rewrite my local branch names in the commit message                                  
+    # to branch names sensible to the casual reader of the git log.                                             
+    #                                                                                                           
+    # Option --no-ff instructs git to always record a merge commit, even if                                     
+    # the branch being merged into can be fast-forwarded. This is often the                                     
+    # case when you create a short-lived topic branch which tracks master, do                                   
+    # some changes on the topic branch and then merge the changes into the                                      
+    # master which remained unchanged while you were doing your work on the                                     
+    # topic branch. In this case the master branch can be fast-forwarded (that                                  
+    # is the tip of the master branch can be updated to point to the tip of                                     
+    # the topic branch) and this is what git does by default. With --no-ff                                      
+    # option set git creates a real merge commit which records the fact that                                    
+    # another branch was merged. I find this easier to understand and read in                                   
+    # the log.                                                                                                  
+    #mergeoptions = --no-commit --no-ff
+
+
+# Here comes a list of remote repositories that I frequently use. They are
+# listed here in ~/.gitconfig so that I do not have to add them every time I
+# create a new local git repository.
+
+# This is the main sip-router git repository. The configuration below
+# downloads all tags just like branches and stores them under refs/tags/sr/
+# subdirectory. This is necessary because the contents of this repository
+# originates from the SER cvs repository. If you pull both the sip-router
+# repository and the SER cvs repository (through its git mirror) into a local
+# git repository then they might generate conflicting tags because they both
+# contain the same tag names (but pointing to different commit ids).
+[remote "sr"]
+    url = git://git.sip-router.org/sip-router
+    fetch = +refs/heads/*:refs/remotes/sr/*
+    fetch = refs/tags/*:refs/tags/sr/*
+    tagopt = --no-tags
+
+# This is the git import of the cvs repository of SER. See the description of
+# above for an explanation of why do we have to download tags manually and
+# store them in a subdirectory.
+[remote "cvs"]
+    url = git://git.sip-router.org/ser
+    fetch = +refs/heads/*:refs/remotes/cvs/*
+    fetch = refs/tags/*:refs/tags/cvs/*
+    tagopt = --no-tags
+
+# This is the git import of the kamailio svn repository. This repository is
+# read only and is only available through http or https. Make sure you have
+# installed the CA certificate for sip-router.org domain if you want to use
+# https transport. We are using unofficial CA certificates.
+[remote "km"]
+    url = http://git.sip-router.org/kamailio
+    fetch = +refs/heads/*:refs/remotes/km/*
+    fetch = refs/tags/*:refs/tags/km/*
+    tagopt = --no-tags
+
+# This is the git import of the opensips svn repository. This repository is
+# read only and is only available through http or https. Make sure you have
+# installed the CA certificate for sip-router.org domain if you want to use
+# https transport. We are using unofficial CA certificates.
+[remote "os"]
+    url = http://git.sip-router.org/opensips
+    fetch = +refs/heads/*:refs/remotes/os/*
+    fetch = refs/tags/*:refs/tags/os/*
+    tagopt = --no-tags
