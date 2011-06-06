@@ -1,0 +1,9 @@
+label {
+    display: block;
+    padding: 5px;
+    text-align: left;
+}
+#content{
+	width: 960px;
+	margin: 0 auto;
+}
