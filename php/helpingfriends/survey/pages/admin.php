@@ -1,18 +1,24 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>NSurvey</title>
+	<title>NSurvey - Admin</title>
 	<link href='pages/assets/framework.css' rel='stylesheet'>
-	<link href='pages/assets/master.css' rel='stylesheet'> 
+	<link href='pages/assets/master.css' rel='stylesheet'>
 </head>
 <body>
-	<div id="header"></div>
-	<div id="content">
+	<header id="head">
+    	<div class="head-wrap">
+        	<p>Welcome to Survey Admin Page</p>
+        </div>
+    </header>
+	<section id="content">
+    <h1>Make new survey</h1>
 	<!-- FORM START -->
 	<form method="post" enctype="multipart/form-data">
 	<ul>
 		<li>
 			<label>Title</label>
-			<input type="text" name="title" />
+			<input type="text" name="title" required/>
 		</li>
 		<li>
 			<label>Greeting</label>
@@ -20,7 +26,7 @@
 		</li>
 		<li>
 			<label>Numbers of Questions</label>
-			<input type="text" name="num_questions" />
+			<input type="number" name="num_questions" pattern="[0-9]+" required />
 		</li>
 		<li>
 			<label>Logo</label>
@@ -30,7 +36,9 @@
 	</ul>
 	</form>
 	<!-- FORM END -->
-	</div>
-	<div id="footer"></div>
+	</section>
+	<footer id="foot">
+    	<div class="foot-wrap">&copy;SOMEWHAT111</div>
+    </footer>
 </body>
 </html>
