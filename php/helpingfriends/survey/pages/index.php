@@ -1,14 +1,19 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>NSurvey</title>
+	<title>NSurvey - <?php echo $survey['title']; ?></title>
 	<link href='pages/assets/framework.css' rel='stylesheet'>
 	<link href='pages/assets/master.css' rel='stylesheet'> 
 </head>
 <body>
-	<div id="header"><img src="<?php echo 'storage/'.$survey['image']; ?>"></div>
-	<div id="content">
-		<h1><?php echo $survey['title']; ?></h1>
-		<p><?php echo $survey['greeting']; ?></p>
+	<header id="head">
+    	<div class="head-wrap">
+        	<img src="<?php echo 'storage/'.$survey['image']; ?>" id="survey-logo">
+        </div>
+    </header>
+	<section id="content">
+		<h1 id="survey-title"><?php echo $survey['title']; ?></h1>
+		<p class="greetings"><?php echo $survey['greeting']; ?></p>
 		<ul>
 		<form method="post">
 			<?php foreach ($questions as $question): ?>
@@ -24,7 +29,9 @@
 		</ul>
 		<li><input type="submit" name="submit" value="Submit" /></li>
 		</form>
-	</div>
-	<div id="footer"></div>
+	</section>
+	<footer id="foot">
+    	<div class="foot-wrap">&copy;SOMEWHAT111</div>
+    </footer>
 </body>
 </html>

@@ -1,9 +1,41 @@
+body{font:13px Arial, Helvetica, sans-serif}
 label {
     display: block;
     padding: 5px;
     text-align: left;
 }
-#content{
+#head, #foot
+{
+	background: none repeat scroll 0 0 #EEEEEE;
+	padding:10px;
+}
+#content, .head-wrap, .foot-wrap
+{
 	width: 960px;
 	margin: 0 auto;
+}
+#content
+{
+	border-color: #BBBBBB;
+	border-right: 1px dashed #BBBBBB;
+	border-style: none dashed;
+	border-width: 0 1px;
+	padding: 10px;
+}
+h1#survey-title
+{
+	color: green;
+	font-variant: small-caps;
+	margin: 5px 0 10px;
+	text-transform: capitalize;
+}
+.greetings
+{
+	color: #808080;
+	font: 16px Arial;
+	margin-bottom: 20px;
+}
+#statues {
+  background: none repeat scroll 0 0 #FFE553;
+  padding: 20px;
 }
