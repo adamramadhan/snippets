@@ -41,7 +41,7 @@ if (!empty($_GET['s'])) {
 		$fullquery = 'INSERT INTO questions(title,SID) VALUES '.$query;
 		$status = $db->query($fullquery);
 		if ($status) {
-			echo "IM CEO BITCH";
+			echo "<div id=\"statues\">Survey and questions saved.</div>";
 		}
 	}
 	require '/pages/question.php';
