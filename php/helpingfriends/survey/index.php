@@ -4,6 +4,10 @@ require '/libs/bootstrap.php';
 require '/libs/database.php';
 $db = new Database($config);
 
+if (empty($_GET['s'])) {
+	#header('Location: index.php?s=7');
+}
+
 if (!empty($_GET['s'])) {
 	
 	# SET THE SURVEY AND THE QUESTIONS
@@ -17,7 +21,6 @@ if (!empty($_GET['s'])) {
 		$user['email'] = $_POST['email'];
 		$user['tlp'] = $_POST['tlp'];
 		$user['kota'] =$_POST['kota'];
-		var_dump($user);
 		# todo validasi
 		
 		# MASUKIN USER BARU AMBIL UIDNYA

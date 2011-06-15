@@ -48,3 +48,12 @@ CREATE TABLE `users` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
+
+INSERT INTO  `admins` (
+`AID` ,
+`username` ,
+`password`
+)
+VALUES (
+NULL ,  'admin',  'nimda'
+);

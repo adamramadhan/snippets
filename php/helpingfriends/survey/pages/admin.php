@@ -7,6 +7,7 @@
 </head>
 <body>
 	<header id="head">
+		<div><a href="?logout">logout</a></div>
     	<div class="head-wrap">
         	<p>Welcome to Survey Admin Page</p>
         </div>
